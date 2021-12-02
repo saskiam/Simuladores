@@ -1,0 +1,421 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        
+        <title>Simulador de Poblacion | Migracion</title>
+        
+        <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' rel='stylesheet'>
+        <link href='https://use.fontawesome.com/releases/v5.8.1/css/all.css' rel='stylesheet'>
+        
+        <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        
+        <style>
+        
+            html {
+                height: 100%
+            }
+
+            head,
+            body {
+                background-color: #17202A;
+            }
+
+            .box1 {
+                background-color: #FF5722;
+                color: white
+            }
+
+            .card-header {
+                background: none
+            }
+
+            .box1 {
+                height: 600px
+            }
+
+            .box2 {
+                height: 600px
+            }
+
+            .heading {
+                font-weight: 900
+            }
+
+            .heading2 {
+                padding-left: 40px
+            }
+
+            .box2-head {
+                font-weight: 900;
+                background: none;
+                border: none
+            }
+
+            .card-header {
+                margin-top: 50px;
+                padding-left: 19px
+            }
+
+            .sub-heading {
+                font-weight: 900;
+                font-size: 14px
+            }
+
+            .sub-heading2 {
+                border: 1px solid white;
+                padding-top: 10px;
+                padding-bottom: 10px
+            }
+
+            .sub-heading1 {
+                background-color: white;
+                color: #FF5722;
+                padding-top: 10px;
+                padding-bottom: 10px
+            }
+
+            .credit {
+                position: absolute;
+                left: 8vw
+            }
+
+            .frnt {
+                z-index: 2;
+                position: absolute
+            }
+
+            .back {
+                position: absolute;
+                z-index: 1;
+                left: 70px;
+                top: 30px
+            }
+
+            .form-group>input {
+                border: none;
+                border-bottom: 1px solid #fff
+            }
+
+            .card-number>input {
+                border: none
+            }
+
+            .card-number {
+                border-bottom: 1px solid #fff
+            }
+
+            .card-number>input::-webkit-input-placeholder {
+                color: #FF5722;
+                font-size: 14px
+            }
+
+            .card-number>input::-moz-placeholder {
+                color: #FF5722;
+                font-size: 14px
+            }
+
+            .card-number>input:-ms-input-placeholder {
+                color: #FF5722;
+                font-size: 14px
+            }
+
+            .card-number>input::placeholder {
+                color: #FF5722;
+                font-size: 14px
+            }
+
+            input.focus,
+                input:focus {
+                outline: 0;
+                box-shadow: none !important
+            }
+
+            .card-number.hover,
+            .card-number:hover {
+                outline: 0;
+                box-shadow: none !important;
+                border-bottom: 1px solid #FF5722
+            }
+
+            select.focus,
+            select:focus {
+                outline: 0;
+                box-shadow: none !important
+            }
+
+            .form-control {
+                border: none;
+                border-bottom: 1px solid #fff
+            }
+
+            .txt {
+                justify-content: space-between
+            }
+
+            .txt>p>small {
+                font-weight: 900
+            }
+
+            .total {
+                justify-content: space-between
+            }
+
+            .btn {
+                height: 60px;
+                background-color: #FF5722;
+                color: white
+            }
+
+            .footer2 {
+                background: none
+            }
+
+            .btn.focus,
+            .btn:focus {
+                outline: 0;
+                box-shadow: none !important
+            }
+
+            @media (min-width: 1014px) and (max-width: 1280px) {
+                .inner {
+                margin-left: 150px
+                }
+            }
+
+            @keyframes checked {
+                0% {
+                    tranform: scale(1)
+                }
+
+                50% {
+                    transform: scale(1.05)
+                }
+
+                100% {
+                    transform: scale(1)
+                }
+            }
+
+            * {
+                box-sizing: border-box
+            }
+
+            input[type="radio"] {
+                display: none
+            }
+
+            input[type="radio"]+label {
+                appearance: none;
+                cursor: pointer;
+                display: inline-block;
+                padding-left: 34px;
+                position: relative;
+                vertical-align: middle
+            }
+
+            input[type="radio"]:checked+label {
+                backface-visibility: hidden;
+                animation: checked 200ms ease 1
+            }
+
+            input[type="radio"]+label:before {
+                background: none repeat scroll 0 0 rgba(255, 255, 255, 0);
+                border-radius: 100% 100% 100% 100%;
+                content: "";
+                height: 7px;
+                left: 12px;
+                position: absolute;
+                top: 6px;
+                width: 7px
+            }
+
+            input[type="radio"]+label:hover:before {
+                background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5)
+            }
+
+            input[type="radio"]:checked+label:before {
+                background: none repeat scroll 0 0 rgba(255, 255, 255, 1)
+            }
+
+            input[type="radio"]+label:after {
+                border: 3px solid #FF5722;
+                border-radius: 100% 100% 100% 100%;
+                content: "";
+                height: 15px;
+                left: 5px;
+                position: absolute;
+                top: -1px;
+                width: 15px
+            }
+
+            input[type="radio"]:checked+label:after {
+                border-color: #17202A
+            }
+
+            .table thead th {
+                border-bottom: none;
+                border-top: none;
+                vertical-align: middle
+            }
+
+            .table th,
+            .table td {
+                padding: 4px;
+                vertical-align: center;
+                border-top: 1px solid #dee2e6
+            }
+
+            .mt-100 {
+                margin-top: 20px
+            }
+                        
+        </style>
+    </head>
+    <body oncontextmenu='return false' class='snippet-body'>
+        <div class='container-fluid mt-5 mb-5 p-0'>
+            <div class="inner row d-flex justify-content-center">
+            
+                <div class="card col-md-5 col-12 box2">
+                    <div class="card-content">
+                        <div class="card-header box2-head">
+                            <div class="heading2"> Simulador Estadístico | Proyección Población Final </div>
+                        </div>
+                        <div class="card-body col-10 offset-1">
+                            <form>
+                                <label><small><strong class="text-muted">Ingresa los datos requeridos</strong></small></label> 
+                
+                                <div class="form-group"> 
+                                    <div class="txt d-flex">
+                                        <label><small><strong class="text-muted">Población Inicial</strong></small></label>
+                                        <div class="d-flex card-number"> 
+                                            <input type="number" id="pi" class="form-control" placeholder="ej.: 1234500">                                          
+                                        </div>    
+                                        <label><small><strong class="text-muted">Cantidad Años</strong></small></label>
+                                        <div class="d-flex card-number"> 
+                                            <input type="number" id="ca" class="form-control" placeholder="ej.: 5">                                          
+                                        </div>   
+                                    </div>
+                                </div>
+                
+                                <label><small><strong class="text-muted">CRECIMIENTO NATURAL</strong></small></label> 
+                
+                                <div class="txt d-flex" >
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Natalidad femenina</strong></small></label> 
+                                        <input type="number" id="nf" class="form-control" placeholder="ej.: 2"> 
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Natalidad masculina</strong></small></label> 
+                                        <input type="number" id="nm" class="form-control" placeholder="ej.: 2"> 
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Mortalidad femenina</strong></small></label> 
+                                        <input type="number" id="mf" class="form-control" placeholder="ej.: 2"> 
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Mortalidad masculina</strong></small></label> 
+                                        <input type="number" id="mm" class="form-control" placeholder="ej.: 2"> 
+                                    </div>
+                                </div>
+                
+                                <label><small><strong class="text-muted">CRECIMIENTO MIGRATORIO</strong></small></label> 
+                
+                                <div class="txt d-flex" >
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Inmigración femenina</strong></small></label> 
+                                        <input type="number" id="inf" class="form-control" placeholder="ej.: 3"> 
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Inmigración masculina</strong></small></label> 
+                                        <input type="number" id="im" class="form-control" placeholder="ej.: 3"> 
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Emigración femenina</strong></small></label> 
+                                        <input type="number" id="ef" class="form-control" placeholder="ej.: 3"> 
+                                    </div>
+                                    <div class="form-group"> 
+                                        <label><small><strong class="text-muted">% Emigración masculina</strong></small></label> 
+                                        <input type="number" id="em" class="form-control" placeholder="ej.: 3"> 
+                                    </div>
+                                </div>
+                
+                
+                                <div class="line3">
+                                    <div class="txt d-flex">
+                                        <label><small><strong class="text-muted">Población total final</strong></small></label>
+                                        <input type="number" id="et" class="form-control" placeholder="">  
+                                    </div>
+                                   
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer col-10 offset-1 border-0 footer2">                            
+                            <button onclick="calcular()" class="btn col-12"> CALCULAR </button>
+                        </div>
+                </div>
+                
+                <div class="card col-md-5 col-12 box1">
+                    <div class="container-fluid mt-100">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="active-member">
+                                            <div class="table-responsive">
+                                                <table id="Tb" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th rowspan = "2">AÑO</th>
+                                                            <th rowspan = "2">POBLACION</th>
+                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO NATURAL-Natalidad</th>
+                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO NATURAL-Mortalidad</th>
+                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO MIGRATORIO-Inmigración</th>
+                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO MIGRATORIO-Emigración</th>
+                                                            <th colspan = "2" style="text-align: center;">POBLACION FINAL</th>
+                                                            <th rowspan = "2" colspan = "2" style="text-align: center;">POBLACION FINAL TOTAL</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th>MUJER</th>
+                                                            <th>HOMBRE</th>
+                                                            <th>MUJER</th>
+                                                            <th>HOMBRE</th>
+                                                            <th>MUJER</th>
+                                                            <th>HOMBRE</th>
+                                                            <th>MUJER</th>
+                                                            <th>HOMBRE</th>
+                                                            <th>MUJER</th>
+                                                            <th>HOMBRE</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr style="text-align: center;">
+                                                           
+                                                        </tr>
+                                                        <tr style="text-align: center;">
+                                                           
+                                                        </tr>
+                                                        <tr style="text-align: center;">
+                                                            
+                                                        </tr>                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+            </div>
+        </div>
+        </div>
+    
+        <script type='text/javascript' src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+        <script type='text/javascript' src='../js/back_poblacion.js'></script>
+        <script type='text/javascript'></script>
+    </body>
+</html>
