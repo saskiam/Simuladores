@@ -10,28 +10,29 @@ const emigracionFem=document.querySelector("#ef");
 const emigracionMasc=document.querySelector("#em");
 const etiquetafinal=document.querySelector("#et");
 const tabla=document.querySelector("#Tb");
-
+const tablaColumnas=document.getElementsByTagName("td");
 
 function calcular(){
 
     var totalF=(natalidadFem.value/100)-(mortalidadFem.value/100)+(inmigracionFem.value/100)-(emigracionFem.value/100);
-    var totalM=(natalidadMasc.value/100)-(mortalidadMasc.value/100)+(inmigracionMasc.value/100)-(emigracionFem.value/100);
+    var totalM=(natalidadMasc.value/100)-(mortalidadMasc.value/100)+(inmigracionMasc.value/100)-(emigracionMasc.value/100);
     var calculo= 1 + (totalF+totalM);
+    alert(calculo);
 
     var totalTasaF= Math.pow(calculo,cantidadA.value);
     var valorPoblacion=poblacion.value * totalTasaF;
     etiquetafinal.value=Math.round(valorPoblacion);
 
-   
+
     for (var i = 0; i <= cantidadA.value; i++) {
-      // Crea las hileras de la tabla
+      
       var hilera = document.createElement("tr");
 
       for (var j = 0; j < 13; j++) {
 
-       
+
           var celda = document.createElement("td");
-       
+
           tasaNF=parseInt(poblacion.value*(natalidadFem.value/100));
           tasaNM=parseInt(poblacion.value*(natalidadMasc.value/100));
           tasaMF=parseInt(poblacion.value*(mortalidadFem.value/100));
@@ -52,7 +53,7 @@ function calcular(){
           celda.appendChild(textoCelda);
           hilera.appendChild(celda);
 
-      
+
       }
 
   tabla.appendChild(hilera);
@@ -62,7 +63,25 @@ function calcular(){
   }
 
 
-
 }
 
+
+function limpiar(){
+    poblacion.value="";
+    cantidadA.value="";
+    natalidadFem.value="";
+    natalidadMasc.value="";
+    mortalidadFem.value="";
+    mortalidadMasc.value="";
+    inmigracionFem.value="";
+    inmigracionMasc.value="";
+    emigracionMasc.value="";
+    emigracionFem.value="";
+    etiquetafinal.value="";
+    
+    var columnas = tabla.rows.length;
+    for (var x=columnas-1; x>0; x--) {
+       tabla.deleteRow(x);
+    }
+}
 
