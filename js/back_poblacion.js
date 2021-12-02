@@ -11,9 +11,8 @@ const emigracionMasc=document.querySelector("#em");
 const etiquetafinal=document.querySelector("#et");
 const tabla=document.querySelector("#Tb");
 
+
 function calcular(){
-
-
 
     var totalF=(natalidadFem.value/100)-(mortalidadFem.value/100)+(inmigracionFem.value/100)-(emigracionFem.value/100);
     var totalM=(natalidadMasc.value/100)-(mortalidadMasc.value/100)+(inmigracionMasc.value/100)-(emigracionFem.value/100);
@@ -63,13 +62,6 @@ function calcular(){
   }
 
 
-
-}
-
-
-function calcularTasa(poblacion, indicador){
-
-    return poblacion.value*(indicador.value/100);
 
 }
 
