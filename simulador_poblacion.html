@@ -22,6 +22,30 @@
                 background-color: #17202A;
             }
 
+            /* Modal Content */
+            .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            }
+
+            /* The Close Button */
+            .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            }
+
             .box1 {
                 background-color: #FF5722;
                 color: white
@@ -288,9 +312,17 @@
                 <div class="card col-md-5 col-12 box2">
                     <div >
                     <a href="bienvenida.html" class="btn bnv" style='font-size:25px;'>&#8249;</a>
-                    <a href="bienvenida.html" class="btn bnv" style='font-size:25px;'>&#9432;</a>
+                    <a class="btn bnv" id="info" onclick="modal()" style='font-size:25px;'>&#9432;</a>
                     </div>
-                    
+                    <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <p>Some text in the Modal..</p>
+                    </div>
+
+                    </div>
                     <div class="card-content">
                         <div class="card-header box2-head">
                             <div class="heading2"> Simulador Estadístico | Proyección Población Final </div>

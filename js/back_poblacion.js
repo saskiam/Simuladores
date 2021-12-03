@@ -12,6 +12,7 @@ const etiquetafinal=document.querySelector("#et");
 const tabla=document.querySelector("#Tb");
 const tablaColumnas=document.getElementsByTagName("td");
 
+
 function calcular(){
 
     var totalF=(natalidadFem.value/100)-(mortalidadFem.value/100)+(inmigracionFem.value/100)-(emigracionFem.value/100);
@@ -80,8 +81,24 @@ function limpiar(){
     etiquetafinal.value="";
     
     var columnas = tabla.rows.length;
-    for (var x=columnas-1; x>0; x--) {
+    for (var x=columnas-1; x>1; x--) {
        tabla.deleteRow(x);
     }
 }
 
+function modal(){
+    var modal = document.getElementById("myModal");
+    var botonSalir = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+    
+    botonSalir.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+}
