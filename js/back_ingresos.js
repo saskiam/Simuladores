@@ -7,10 +7,11 @@ var chart = new Chart(ctx, {
     data: {
         labels: ['Día 1', 'Día 2', 'Día 3', 'Día 4', 'Día 5', 'Día 6', 'Día 7'],
         datasets: [{
-            label: 'Ingresos generados',
+            label: 'Ingresos Generados',
             //backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            borderColor: '#FF5722',
             data: [0, 10, 5, 2, 20, 30, 45]
+
         }]
     },
 

@@ -10,8 +10,27 @@
         <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
         
         <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
+
+        <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.min.css" rel="stylesheet" type="text/css" />
+        
+        <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
         
         <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+
+                $('#smartwizard').smartWizard({
+                    selected: 0,
+                    theme: 'dots',
+                    autoAdjustHeight:true,
+                    transitionEffect:'fade',
+                    showStepURLhash: false,
+                });
+            });
+        </script>
             
             <style>        
                 body {
@@ -109,17 +128,42 @@
                 }
 
                 .round {
-                    border-radius: 50%;
+                    border-radius: 25%;
                 }
 
+                ::placeholder {
+                    font-size: smaller;
+                }
+
+                .form-control:focus {
+                    color: #495057;
+                    background-color: #fff;
+                    border-color: #80bdff;
+                    outline: 0;
+                    box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25)
+                }
+
+                .btn-secondary:focus {
+                    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+                }
+
+                .close:focus {
+                    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+                }
+
+                .mt-200 {
+                    margin-top: 200px
+                }
+                
             </style>
     </head>
 
     <body oncontextmenu='return false' class='snippet-body'>
         <div class="container rounded bg-white mt-5 mb-5">
             <br>
-            <a href="bienvenida.html" class="previous round">&#8249;</a>        
-        <div class="row">
+            <a href="bienvenida.html" class="previous round">&#8249;</a> 
+            <a class="previous round" data-toggle="modal" data-target="#exampleModal" style="color: #fff;">&#9432;</a>
+            <div class="row">
 
         <div class="col-md-3 border-right">
             <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -131,7 +175,7 @@
             </div>
         </div>
 
-        <div class="col-md-5">
+        <div class="col-xl-5">
             <div class="p-3 py-5">
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -139,23 +183,22 @@
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h6 class="text-right">Ingresa los datos requeridos</h6>
+                    <h6 class="text-right">Ingrese los datos requeridos</h6>
                 </div>
-                <a href="" class="previous round">?</a>
 
                 <div class="row mt-2">
                     <div class="col-md-6">
                         <label class="labels">No. de Cruceros</label>
-                        <input type="text" class="form-control" placeholder="Ingrese numeros enteros entre el 0 - 6" required>
+                        <input id="num_crucero" type="text" class="form-control" placeholder="Ingrese No. enteros (0 - 6)" pattern="[0-9]{0,6}" required>
                     </div>
                     <div class="col-md-6">
                         <label class="labels">No. de Pasajeros</label>
-                        <select type="text" class="form-control" required>
+                        <select type="text" class="form-control" required style="font-size: smaller;">
                             <option value="placeholder" selected>Seleccione un Rango</option>
-                            <option value="Rango">0 – 499</option>
-                            <option value="Rango">500 – 999</option>
-                            <option value="Rango">1000 – 1499</option>
-                            <option value="Rango">1500 – 2000</option>
+                            <option id="num_pasajero_rgo1" value="Rango1">0 – 499</option>
+                            <option id="num_pasajero_rgo2" value="Rango2">500 – 999</option>
+                            <option id="num_pasajero_rgo3" value="Rango3">1000 – 1499</option>
+                            <option id="num_pasajero_rgo4" value="Rango4">1500 – 2000</option>
                         </select>                     
                     </div>
                 </div>
@@ -163,76 +206,30 @@
                 <div class="row mt-2 col">
                     <label class="labels">Precio del Pasaje ($)</label>
                     <div class="input-group">                        
-                        <input type="text" class="form-control" placeholder="ej.: 600" pattern="[0-9]" title="El campo solo admite números enteros" required>
+                        <input id="precio_pasaje" type="text" class="form-control" placeholder="ej.: 600" pattern="[0-9]" title="El campo solo admite números enteros" required>
                         <span class="input-group-btn">
-                            <button class="btn btn-primary profile-button" type="submit" id="calcular">Calcular</button>
+                            <button id="btn_calcular" class="btn btn-primary profile-button" type="submit">Calcular</button>
                         </span>
                     </div>
+                    
+                </div>
+
+                <div class="row mt-4 col">
+                    <div class="input-group">   
+                        <h6> <label class="text_rigth">Probabilidades</label> </h6>  
+                        <div class="col-md-6">
+                            <span class="input-group-btn">
+                                <button id="btn_calcular" class="btn btn-primary profile-button" data-toggle="modal" data-target="#exampleModal2">Establecer</button>
+                            </span>
+                        </div>                  
+
+                    </div>
+                
             </div>
 
             <div class="row mt-5">
                 <canvas id="myChart"></canvas>
                 <div class="col-md-100">
-                    <!-- <div class="container-fluid mt-10">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="active-member">
-                                            <div class="table-responsive">
-                                                <table class="table table-responsive">
-                                                    <thead>
-                                                        <h6>Tabla de Control</h6>                                                        
-                                                        <tr>
-                                                            <th><h6>Dia</h6></th>
-                                                            <th><h6>Ingreso 1</h6></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td><span>3,500</span> </td>
-                                                            
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>2</td>
-                                                            <td><span>1,500</span> </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>3</td>
-                                                            <td><span>3,500</span> </td>                                                            
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>4</td>
-                                                            <td><span>1,500</span> </td>
-                                                        </tr>    
-                                                        
-                                                        <tr>
-                                                            <td>5</td>
-                                                            <td><span>3,500</span> </td>                                                           
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>6</td>
-                                                            <td><span>1,500</span> </td>
-                                                        </tr>  
-                                                        
-                                                        <tr>
-                                                            <td>7</td>
-                                                            <td><span>1,500</span> </td>
-                                                        </tr>                          
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
                 </div>
               
@@ -251,3 +248,108 @@
         <script type='text/javascript' src='./js/back_ingresos.js'></script>
     </body>
 </html>
+
+<!--Modal Informacion-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content p-4" style="align-items: center;border-radius: 30px;">
+            <div class='top'> <img class="img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Android_P_logo.svg" />
+                <div class="headr">Policy Update</div>
+            </div>
+            <div class="modal-header border-0 mb-2">
+                <div class="modal-title" id="exampleModalLabel" style="text-align: center;">
+                    <div> We've updated our <u>Terms of Service</u> and <u>Privacy Policy</u>.Please take 5 minutes to read them to be sure that we are on the same page regarding your personal and business data use. It's really important<br /> for us. </div>
+                    <div> Once you have read the updated Terms of Service and Privacy Policy and agree with them,please,click <strong>"Accept"</strong>. If you have questions,<br /> <u>contact us.</u> </div>
+                </div>
+            </div>
+            <div class="modal-body"> <button type="button" class="btn previous round" data-dismiss="modal" style="color: #fff;">Accept</button> </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal Probabilidades-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Establecimiento de Probabilidades</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+            </div>
+            <div class="modal-body">
+                <div id="smartwizard">
+                    <ul>
+                        <li><a href="#step-1" >Paso 1<br /><small>Indicaciones</small></a></li>
+                        <li><a href="#step-2">Paso 2<br /><small>Número de Cruceros</small></a></li>
+                        <li><a href="#step-3">Paso 3<br /><small>Número de Pasajeros</small></a></li>
+                    </ul>
+                    <div>
+                        <div id="step-1" class="">
+                            <div class="row">
+                                <div class="col-md-12"> 
+                                    <span>
+                                        A continuación deberá ingresar las probabilidades deseadas para los datos que se le indican.
+                                    </span> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="step-2">
+                            <label class="labels">
+                                <h6>Probabilidad para el Número de Cruceros</h6> 
+                                <br> Ingrese la probabilidad para los rangos indicados. 
+                            </label>
+                            <div class="row">
+                                <div class="col-md-6"> <label class="labels">Rango de Número de Cruceros</label> </div>
+                                <div class="col-md-6"> <label class="labels">Probabilidad (%) </label> </div>
+                            </div>                            
+                            <div class="row">
+                                <div class="col-md-6"> <input id="Rango1" type="text" class="form-control" placeholder="0" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_cru1" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{0}" required> </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-6"> <input id="Rango2" type="text" class="form-control" placeholder="1 - 2" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_cru2" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,2}" required> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"> <input id="Rango3" type="text" class="form-control" placeholder="3 - 4" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_cru3" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{3,4}" required> </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-6"> <input id="Rango4" type="text" class="form-control" placeholder="5 – 6" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_cru4" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{5,6}" required> </div>
+                            </div>
+                        </div>
+
+                        <div id="step-3" class="">
+                            <label class="labels">
+                                <h6>Probabilidad para el Número de Pasajeros</h6> 
+                                <br> Ingrese la probabilidad para los rangos indicados. 
+                            </label>
+                            <div class="row">
+                                <div class="col-md-6"> <label class="labels">Rango de Número de Pasajeros</label> </div>
+                                <div class="col-md-6"> <label class="labels">Probabilidad (%) </label> </div>
+                            </div>                            
+                            <div class="row">
+                                <div class="col-md-6"> <input id="Rango1" type="text" class="form-control" placeholder="0 – 499" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_pas1" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-6"> <input id="Rango2" type="text" class="form-control" placeholder="500 – 999" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_pas2" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"> <input id="Rango3" type="text" class="form-control" placeholder="1000 – 1499" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_pas3" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-6"> <input id="Rango4" type="text" class="form-control" placeholder="1500 – 2000" disabled> </div>
+                                <div class="col-md-6"> <input id="prob_pas4" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -233,59 +233,7 @@
             * {
                 box-sizing: border-box
             }
-
-            input[type="radio"] {
-                display: none
-            }
-
-            input[type="radio"]+label {
-                appearance: none;
-                cursor: pointer;
-                display: inline-block;
-                padding-left: 34px;
-                position: relative;
-                vertical-align: middle
-            }
-
-            input[type="radio"]:checked+label {
-                backface-visibility: hidden;
-                animation: checked 200ms ease 1
-            }
-
-            input[type="radio"]+label:before {
-                background: none repeat scroll 0 0 rgba(255, 255, 255, 0);
-                border-radius: 100% 100% 100% 100%;
-                content: "";
-                height: 7px;
-                left: 12px;
-                position: absolute;
-                top: 6px;
-                width: 7px
-            }
-
-            input[type="radio"]+label:hover:before {
-                background: none repeat scroll 0 0 rgba(255, 255, 255, 0.5)
-            }
-
-            input[type="radio"]:checked+label:before {
-                background: none repeat scroll 0 0 rgba(255, 255, 255, 1)
-            }
-
-            input[type="radio"]+label:after {
-                border: 3px solid #FF5722;
-                border-radius: 100% 100% 100% 100%;
-                content: "";
-                height: 15px;
-                left: 5px;
-                position: absolute;
-                top: -1px;
-                width: 15px
-            }
-
-            input[type="radio"]:checked+label:after {
-                border-color: #17202A
-            }
-
+           
             .table thead th {
                 border-bottom: none;
                 border-top: none;
@@ -303,6 +251,10 @@
             .mt-100 {
                 margin-top: 20px
             }
+
+            ::placeholder {
+                font-size: 14px
+            }
                         
         </style>
     </head>
@@ -311,18 +263,10 @@
             <div class="inner row d-flex justify-content-center">
                 <div class="card col-md-5 col-12 box2">
                     <div >
-                    <a href="bienvenida.html" class="btn bnv" style='font-size:25px;'>&#8249;</a>
-                    <a class="btn bnv" id="info" onclick="modal()" style='font-size:25px;'>&#9432;</a>
+                    <a href="bienvenida.html" class="previous round btn bn" style='font-size:25px;'>&#8249;</a>
+                    <a class="btn previous round " data-toggle="modal" data-target="#exampleModal2" style="color: #fff; font-size:25px;">&#9432;</a>
                     </div>
-                    <div id="myModal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <p>Some text in the Modal..</p>
-                    </div>
-
-                    </div>
+                    
                     <div class="card-content">
                         <div class="card-header box2-head">
                             <div class="heading2"> Simulador Estadístico | Proyección Población Final </div>
@@ -414,13 +358,19 @@
                                             <div class="table-responsive">
                                                 <table id="Tb" class="table">
                                                     <thead>
+                                                        <tr class="heading2">
+                                                            <th></th>
+                                                            <th></th>
+                                                            <th colspan = "4" style="text-align: center;">CRECIMIENTO NATURAL</th>
+                                                            <th colspan = "4" style="text-align: center;">CRECIMIENTO MIGRATORIO</th>
+                                                        </tr>
                                                         <tr>
                                                             <th rowspan = "2">AÑO</th>
                                                             <th rowspan = "2">POBLACIÓN</th>
-                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO NATURAL-Natalidad</th>
-                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO NATURAL-Mortalidad</th>
-                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO MIGRATORIO-Inmigración</th>
-                                                            <th colspan = "2" style="text-align: center;">CRECIMIENTO MIGRATORIO-Emigración</th>
+                                                            <th colspan = "2" style="text-align: center;">Natalidad</th>
+                                                            <th colspan = "2" style="text-align: center;">Mortalidad</th>
+                                                            <th colspan = "2" style="text-align: center;">Inmigración</th>
+                                                            <th colspan = "2" style="text-align: center;">Emigración</th>
                                                             <th colspan = "2" style="text-align: center;">POBLACIÓN FINAL</th>
                                                             <th rowspan = "2" colspan = "2" style="text-align: center;">POBLACIÓN FINAL TOTAL</th>
                                                         </tr>
@@ -466,3 +416,21 @@
         <script type='text/javascript'></script>
     </body>
 </html>
+
+<!--Modal Informacion-->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content p-4" style="align-items: center;border-radius: 30px;">
+            <div class='top'> <img class="img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Android_P_logo.svg" />
+                <div class="headr">Policy Update</div>
+            </div>
+            <div class="modal-header border-0 mb-2">
+                <div class="modal-title" id="exampleModalLabel" style="text-align: center;">
+                    <div> We've updated our <u>Terms of Service</u> and <u>Privacy Policy</u>.Please take 5 minutes to read them to be sure that we are on the same page regarding your personal and business data use. It's really important<br /> for us. </div>
+                    <div> Once you have read the updated Terms of Service and Privacy Policy and agree with them,please,click <strong>"Accept"</strong>. If you have questions,<br /> <u>contact us.</u> </div>
+                </div>
+            </div>
+            <div class="modal-body"> <button type="button" class="btn previous round" data-dismiss="modal">Accept</button> </div>
+        </div>
+    </div>
+</div>
