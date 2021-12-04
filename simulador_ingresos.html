@@ -189,7 +189,7 @@
             </div>
         </div>
 
-        <div class="col-xl-5">
+        <div class="col-xl">
             <div class="p-3 py-5">
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -242,7 +242,7 @@
                 </div>
               
                 <div class="col-md-12">
-                    <label class="labels">Promedio Ingresos Semanales ($)</label>
+                    <label class="labels">Promedio Ingreso Semanal ($)</label>
                     <input type="text" class="form-control" placeholder="27,800" disabled>
                 </div>
             </div>
@@ -259,102 +259,41 @@
 
 <!--Modal Informacion-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content p-4" style="align-items: center;border-radius: 30px;">
-            <div class='top'> <img class="img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Android_P_logo.svg" />
-                <div class="headr">Policy Update</div>
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content p-4" style="align-items: center;border-radius: 30px; font-size: small;">
+            <div class='top'> <img class="img" src="img/iconfinder-info.png" style="height: 150px; width: 150px;">
+                <div class="headr" style="text-align: center;">                        
+                    <br><strong>SIMULADOR</strong>
+                    <br><strong>Turismo | Cruceros</strong>
+                    <br><strong><em>Ingresos Generados</em></strong>
+                </div>
             </div>
             <div class="modal-header border-0 mb-2">
-                <div class="modal-title" id="exampleModalLabel" style="text-align: center;">
-                    <div> We've updated our <u>Terms of Service</u> and <u>Privacy Policy</u>.Please take 5 minutes to read them to be sure that we are on the same page regarding your personal and business data use. It's really important<br /> for us. </div>
-                    <div> Once you have read the updated Terms of Service and Privacy Policy and agree with them,please,click <strong>"Accept"</strong>. If you have questions,<br /> <u>contact us.</u> </div>
-                </div>
-            </div>
-            <div class="modal-body"> <button type="button" class="btn previous round" data-dismiss="modal" style="color: #fff;">Accept</button> </div>
-        </div>
-    </div>
-</div>
-
-<!--Modal Probabilidades-->
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Establecimiento de Probabilidades</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-            </div>
-            <div class="modal-body">
-                <div id="smartwizard">
-                    <ul>
-                        <li><a href="#step-1" >Paso 1<br /><small>Indicaciones</small></a></li>
-                        <li><a href="#step-2">Paso 2<br /><small>Número de Cruceros</small></a></li>
-                        <li><a href="#step-3">Paso 3<br /><small>Número de Pasajeros</small></a></li>
-                    </ul>
-                    <div>
-                        <div id="step-1" class="">
-                            <div class="row">
-                                <div class="col-md-12"> 
-                                    <span>
-                                        A continuación deberá ingresar las probabilidades deseadas para los datos que se le indican.
-                                    </span> 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="step-2">
-                            <label class="labels">
-                                <h6>Probabilidad para el Número de Cruceros</h6> 
-                                <br> Ingrese la probabilidad para los rangos indicados. 
-                            </label>
-                            <div class="row">
-                                <div class="col-md-6"> <label class="labels">Rango de Número de Cruceros</label> </div>
-                                <div class="col-md-6"> <label class="labels">Probabilidad (%) </label> </div>
-                            </div>                            
-                            <div class="row">
-                                <div class="col-md-6"> <input id="Rango1" type="text" class="form-control" placeholder="0" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_cru1" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
-                            </div>
-                            <div class="row mt-1">
-                                <div class="col-md-6"> <input id="Rango2" type="text" class="form-control" placeholder="1 - 2" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_cru2" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"> <input id="Rango3" type="text" class="form-control" placeholder="3 - 4" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_cru3" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{3,100}" required> </div>
-                            </div>
-                            <div class="row mt-1">
-                                <div class="col-md-6"> <input id="Rango4" type="text" class="form-control" placeholder="5 – 6" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_cru4" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{5,100}" required> </div>
-                            </div>
-                        </div>
-
-                        <div id="step-3" class="">
-                            <label class="labels">
-                                <h6>Probabilidad para el Número de Pasajeros</h6> 
-                                <br> Ingrese la probabilidad para los rangos indicados. 
-                            </label>
-                            <div class="row">
-                                <div class="col-md-6"> <label class="labels">Rango de Número de Pasajeros</label> </div>
-                                <div class="col-md-6"> <label class="labels">Probabilidad (%) </label> </div>
-                            </div>                            
-                            <div class="row">
-                                <div class="col-md-6"> <input id="Rango1" type="text" class="form-control" placeholder="0 – 499" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_pas1" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
-                            </div>
-                            <div class="row mt-1">
-                                <div class="col-md-6"> <input id="Rango2" type="text" class="form-control" placeholder="500 – 999" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_pas2" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6"> <input id="Rango3" type="text" class="form-control" placeholder="1000 – 1499" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_pas3" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
-                            </div>
-                            <div class="row mt-1">
-                                <div class="col-md-6"> <input id="Rango4" type="text" class="form-control" placeholder="1500 – 2000" disabled> </div>
-                                <div class="col-md-6"> <input id="prob_pas4" type="text" class="form-control" placeholder="ej.: 1" pattern="[0-9]{1,100}" required> </div>
-                            </div>
-                        </div>
+                <div class="modal-title" id="exampleModalLabel" style="text-align: justify;">
+                    <div> 
+                        <p>El simulador est&aacute; orientado al &aacute;rea estad&iacute;stica y con un enfoque hacia el sector turismo, espec&iacute;ficamente a la actividad de los cruceros, y ayuda a proyectar cuales pueden ser los posibles ingresos que podr&iacute;an generar los turistas a dicho rubro.</p>
+                        <p>Dentro de los datos que se requieren tenemos:</p>
+                        <p><strong>N&uacute;mero de Cruceros,</strong> este campo es con el fin de indicar cuantos cruceros ingresaron en el d&iacute;a, el cual tendr&aacute; un rango entre 0 a 6 cruceros.</p>
+                        <p><strong>N&uacute;mero de Pasajeros,</strong> en dicho campo, se ingresa la cantidad de pasajeros esperado por el n&uacute;mero de cruceros.</p>
+                        <p><strong>Precio del Pasaje del Crucero</strong>, dicho campo es para el ingreso del valor del pasaje por pasajero.</p>
+                        <p><strong>Secci&oacute;n de Establecimiento de Probabilidades</strong></p>
+                        <p>En esta secci&oacute;n se espera que el investigador coloque el porcentaje de probabilidad para un rango de cruceros y para un rango de pasajeros, (<strong><em>*Nota:</em></strong><em> El establecimiento de estos rangos esta previamente estudiado por los desarrolladores del simulador</em>), los cuales ayudaran al calculo tanto del ingreso diario como semanal.</p>
+                        <p><strong>Gr&aacute;fico Lineal,</strong> en este grafico se proyectan los datos obtenidos.</p>
+                        <p><strong>M&eacute;todo para el C&aacute;lculo </strong></p>
+                        <p>El m&eacute;todo utilizado en este simulador es el de Montecarlo, con el cual a trav&eacute;s de la distribuci&oacute;n de probabilidad acumulada tanto del numero de cruceros como de pasajeros, acompa&ntilde;ado de la distribuci&oacute;n de probabilidad, dada por el investigador y del precio del pasaje, obtenemos los datos de los ingresos diarios e ingreso promedio final semanal.</p>
+                        <p><strong><em>Definiciones</em></strong></p>
+                        <p><strong><em>M&eacute;todo Montecarlo, </em></strong><em>es un m&eacute;todo no determin&iacute;stico o estad&iacute;stico num&eacute;rico, usado para aproximar expresiones matem&aacute;ticas complejas y costosas de evaluar con exactitud. Adem&aacute;s, es aplicable a cualquier tipo de problema, ya sea estoc&aacute;stico o determinista</em></p>
+                        <p><em>Proporciona soluciones aproximadas a una gran variedad de problemas matem&aacute;ticos, posibilitando la realizaci&oacute;n de experimentos con muestreos de n&uacute;meros pseudoaleatorios en una computadora.</em></p>
+                        <p><strong><em>C&oacute;mo Funciona la Simulaci&oacute;n Montecarlo</em></strong></p>
+                        <p><em>En general, este m&eacute;todo de simulaci&oacute;n se basa en crear modelos de posibles resultados mediante la sustituci&oacute;n de un rango de valores (una distribuci&oacute;n de probabilidad) para cualquier factor con incertidumbre inherente.</em></p>
+                        <p><em>Despu&eacute;s, calcula los resultados una y otra vez, cada vez usando un grupo diferente de valores aleatorios de las funciones de probabilidad. De esta forma, dependiendo del n&uacute;mero de incertidumbres y de los rangos especificados, arroja los valores deseados.</em></p>
+                        <p><strong><em>Distribuci&oacute;n de Probabilidad Acumulada,</em></strong><em> es una funci&oacute;n matem&aacute;tica que depende de una variable aleatoria real y de una distribuci&oacute;n de probabilidad determinada que devuelve la probabilidad de que la variable sea igual o menor que un valor concreto.</em></p>
+                        <p><strong><em>Fuentes </em></strong></p>
+                        <p><em>EALDE. (2017, Septiembre 18). Retrieved from EALDE: https://www.ealde.es/metodo-simulacion-monte-carlo/</em></p>
+                        <p><em>Rod&oacute;, P. (2021). Retrieved from Economipedia: https://economipedia.com/definiciones/distribucion-de-probabilidad-acumulada.html</em></p>            </div>
                     </div>
-                </div>
+                </div>   
+                <div class="modal-body"> <button type="button" class="btn previous round" data-dismiss="modal">Cerrar</button> </div>         
             </div>
         </div>
     </div>

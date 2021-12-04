@@ -292,19 +292,19 @@
                 
                                 <div class="txt d-flex" >
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Natalidad femenina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Natalidad Femenina</strong></small></label> 
                                         <input type="number" id="nf" class="form-control" placeholder="ej.: 2"> 
                                     </div>
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Natalidad masculina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Natalidad Masculina</strong></small></label> 
                                         <input type="number" id="nm" class="form-control" placeholder="ej.: 2"> 
                                     </div>
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Mortalidad femenina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Mortalidad Femenina</strong></small></label> 
                                         <input type="number" id="mf" class="form-control" placeholder="ej.: 2"> 
                                     </div>
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Mortalidad masculina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Mortalidad Masculina</strong></small></label> 
                                         <input type="number" id="mm" class="form-control" placeholder="ej.: 2"> 
                                     </div>
                                 </div>
@@ -313,28 +313,30 @@
                 
                                 <div class="txt d-flex" >
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Inmigración femenina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Inmigración Femenina</strong></small></label> 
                                         <input type="number" id="inf" class="form-control" placeholder="ej.: 3"> 
                                     </div>
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Inmigración masculina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Inmigración Masculina</strong></small></label> 
                                         <input type="number" id="im" class="form-control" placeholder="ej.: 3"> 
                                     </div>
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Emigración femenina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Emigración Femenina</strong></small></label> 
                                         <input type="number" id="ef" class="form-control" placeholder="ej.: 3"> 
                                     </div>
                                     <div class="form-group"> 
-                                        <label><small><strong class="text-muted">% Emigración masculina</strong></small></label> 
+                                        <label><small><strong class="text-muted">% Emigración Masculina</strong></small></label> 
                                         <input type="number" id="em" class="form-control" placeholder="ej.: 3"> 
                                     </div>
                                 </div>
                 
                 
                                 <div class="line3">
-                                    <div class="txt d-flex">
-                                        <label><small><strong class="text-muted">Población total final</strong></small></label>
-                                        <input type="number" id="et" class="form-control" placeholder="">  
+                                    <div class="d-flex">
+                                        <label><small><strong class="text-muted">POBLACIÓN TOTAL FINAL</strong></small></label>
+                                        <div class="d-flex col-2"> 
+                                            <input type="input" id="et" class="form-control" placeholder="" style="width: max-content;" disabled>  
+                                        </div>   
                                     </div>
                                    
                                     </div>
@@ -355,7 +357,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="active-member">
-                                            <div class="table-responsive">
+                                            <div class="table-responsive" style="height: 515px;">
                                                 <table id="Tb" class="table">
                                                     <thead>
                                                         <tr class="heading2">
@@ -419,18 +421,57 @@
 
 <!--Modal Informacion-->
 <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content p-4" style="align-items: center;border-radius: 30px;">
-            <div class='top'> <img class="img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Android_P_logo.svg" />
-                <div class="headr">Policy Update</div>
-            </div>
-            <div class="modal-header border-0 mb-2">
-                <div class="modal-title" id="exampleModalLabel" style="text-align: center;">
-                    <div> We've updated our <u>Terms of Service</u> and <u>Privacy Policy</u>.Please take 5 minutes to read them to be sure that we are on the same page regarding your personal and business data use. It's really important<br /> for us. </div>
-                    <div> Once you have read the updated Terms of Service and Privacy Policy and agree with them,please,click <strong>"Accept"</strong>. If you have questions,<br /> <u>contact us.</u> </div>
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content p-4" style="align-items: center;border-radius: 30px; font-size: small;">
+            <div class='top'> <img class="img" src="img/iconfinder-info.png" style="height: 150px; width: 150px;">
+                <div class="headr" style="text-align: center;">                        
+                    <br><strong>SIMULADOR</strong>
+                    <br><strong>Estadístico</strong>
+                    <br><strong><em>Proyección Población Final</em></strong>
                 </div>
             </div>
-            <div class="modal-body"> <button type="button" class="btn previous round" data-dismiss="modal">Accept</button> </div>
+            <div class="modal-header border-0 mb-2">
+                <div class="modal-title" id="exampleModalLabel" style="text-align: justify;">
+                    <div> 
+                        <p>Este simulador tiene como objetivo, generar datos que nos ayuden a proyectar el crecimiento poblacional bajo ciertas circunstancias (ej.: crecimiento migratorio) en un determinado n&uacute;mero de a&ntilde;os. Mediante el uso de operaciones aritm&eacute;ticas.</p>
+                        <p>Dentro de los datos que se requieren son:</p>
+                        <p><strong>Poblaci&oacute;n Inicial,</strong>&nbsp;en dicho campo se introducir&aacute; la muestra de poblaci&oacute;n deseada para el estudio</p>
+                        <p><strong>Cantidad de A&ntilde;os,</strong>&nbsp;en este campo se establecer la cantidad de a&ntilde;os de los cuales se necesita conocer la poblaci&oacute;n final.</p>
+                        <p><strong>Crecimiento Natural</strong></p>
+                        <p>Los campos que se llenan en esta secci&oacute;n hacen referencia a la tasa tanto de natalidad como de mortalidad; expresados como un porcentaje. Adem&aacute;s de ello, se toma en consideraci&oacute;n que la evaluaci&oacute;n de estos datos est&aacute; dividida por g&eacute;nero, para una mayor comprensi&oacute;n del estudio.</p>
+                        <ul>
+                        <li>% Natalidad Mujer</li>
+                        <li>% Natalidad Hombre</li>
+                        <li>% Mortalidad Mujer</li>
+                        <li>% Mortalidad Hombre</li>
+                        </ul>
+                        <p><strong>Crecimiento Migratorio</strong></p>
+                        <p>Los campos que se llenan en esta secci&oacute;n se refieren a la tasa tanto de inmigraciones como de emigraciones, segmentado por g&eacute;nero y expresados como un porcentaje.</p>
+                        <ul>
+                        <li>% Inmigraci&oacute;n Mujer</li>
+                        <li>% Inmigraci&oacute;n Hombre</li>
+                        <li>% Emigraci&oacute;n Mujer</li>
+                        <li>% Emigraci&oacute;n Hombre</li>
+                        </ul>
+                        <p><strong>Tabla de Proyecci&oacute;n,</strong> esta tabla muestra los datos obtenidos luego de hacer los c&aacute;lculos respectivos para obtener la poblaci&oacute;n final.</p>
+                    </div>
+                    <div>
+                        <p><strong>Formula Aritm&eacute;tica Para el Calculo</strong></p>
+                        <p><em>Crecimiento Poblacional = (Crecimiento Natural) + (Crecimiento Migratorio)</em></p>
+                        <p><strong>Desglosando Formula</strong></p>
+                        <p><em>Crecimiento Poblacional = (Nacimiento &ndash; Defunciones) + (Inmigraciones &ndash; Emigraciones)</em></p>
+                        <p><strong><em>Definiciones</em></strong></p>
+                        <ol>
+                        <li><strong><em> </em></strong><strong><em>Crecimiento Poblacional</em></strong><em>, es el aumento de los habitantes en un lugar y un momento determinados.</em></li>
+                        <li><strong><em> </em></strong><strong><em>Crecimiento Natural,</em></strong><em> es la diferencia entre los nacimientos y las defunciones durante un cierto periodo de tiempo.</em></li>
+                        <li><strong><em> </em></strong><strong><em>Crecimiento Migratorio, </em></strong><em>es la diferencia entre las entradas por migraci&oacute;n y las salidas por el mismo motivo.</em></li>
+                        </ol>
+                        <p><strong><em>Fuentes </em></strong></p>
+                        <p><em>D&iacute;az, J. P. (2010, Julio 15). Obtenido de </em><em>Apuntes</em><em> de Demograf&iacute;a: https://apuntesdedemografia.com/curso-de-demografia/temario/tema-3-crecimiento-y-estructura-de-la-poblacion/calculo-del-crecimiento-de-la-poblacion/</em></p>
+                        <p><strong><em>&nbsp;</em></strong></p>                
+                    </div>
+            </div>
         </div>
+        <div class="modal-body"> <button type="button" class="btn previous round" data-dismiss="modal">Cerrar</button> </div>
     </div>
 </div>
