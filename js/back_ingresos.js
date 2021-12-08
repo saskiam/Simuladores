@@ -2,6 +2,7 @@ var ctx = document.getElementById('myChart').getContext('2d');
 
 
 let matrizChart = [100, 10, 5, 2, 20, 30, 45]
+
 var chart = new Chart(ctx, {
     // The type of chart we want to create
     type: 'line',
@@ -29,7 +30,7 @@ let matrizLimites2 = [];
 
 
 function guardarDatos() {
-
+// va
     let r1 = document.querySelector("#prob_cru1");
     let r2 = document.querySelector("#prob_cru2");
     let r3 = document.querySelector("#prob_cru3");
@@ -38,12 +39,15 @@ function guardarDatos() {
     let r6 = document.querySelector("#prob_pas2");
     let r7 = document.querySelector("#prob_pas3");
     let r8 = document.querySelector("#prob_pas4");
+
     let num_crucero = parseInt(document.querySelector("#num_crucero").value ? document.querySelector("#num_crucero").value : 0);
     let num_pasajero = parseInt(document.querySelector("#num_pasajero").value ? document.querySelector("#num_pasajero").value : 0);
+
     arraystep2[0] = parseInt(r1.value);
     arraystep2[1] = parseInt(r2.value);
     arraystep2[2] = parseInt(r3.value);
     arraystep2[3] = parseInt(r4.value);
+
     arraystep3[0] = parseInt(r5.value);
     arraystep3[1] = parseInt(r6.value);
     arraystep3[2] = parseInt(r7.value);
@@ -55,6 +59,7 @@ function guardarDatos() {
     console.log(matrizLimites2);
 
 }
+// funcion onclick
 function calcularDatosChart() {
     let total_promedio = document.querySelector("#total_promedio");
     let precio_pasaje = (document.querySelector("#precio_pasaje").value ? document.querySelector("#precio_pasaje").value : 0);
@@ -65,8 +70,9 @@ function calcularDatosChart() {
     for (let i = 0; i < 7; i++) {
         const randomCrucero = Math.floor(Math.random() * matrizLimites1.length);
         const randomPasajero = Math.floor(Math.random() * matrizLimites2.length);
-        console.log(randomCrucero, randomPasajero);
-        console.log(matrizLimites1[randomCrucero].cruceros, (matrizLimites1[randomCrucero].ls / 100), matrizLimites2[randomPasajero].pasajeros, (matrizLimites2[randomPasajero].ls / 100), parseInt(precio_pasaje))
+        //console.log(randomCrucero, randomPasajero);
+        //console.log(matrizLimites1[randomCrucero].cruceros, (matrizLimites1[randomCrucero].ls / 100), matrizLimites2[randomPasajero].pasajeros, (matrizLimites2[randomPasajero].ls / 100), parseInt(precio_pasaje))
+        
         ingresos.push((matrizLimites1[randomCrucero].cruceros * (matrizLimites1[randomCrucero].ls / 100)) * (matrizLimites2[randomPasajero].pasajeros * (matrizLimites2[randomPasajero].ls / 100)) * parseInt(precio_pasaje));
     }
     ingresos.forEach(e => {
@@ -75,6 +81,7 @@ function calcularDatosChart() {
     total = total / ingresos.length;
     total_promedio.value = total;
     console.log(ingresos);
+
     matrizChart = ingresos;
     chart = new Chart(ctx, {
         // The type of chart we want to create
@@ -96,13 +103,7 @@ function calcularDatosChart() {
         options: {}
     });
 }
-const calcularRamdon = () => {
-    let precio_pasaje = document.querySelector("#precio_pasaje");
-    index = Math.floor(Math.random() * matrizLimites1.length);
-    index2 = Math.floor(Math.random() * matrizLimites2.length);
-    console.log([matrizLimites1[index] * matrizLimites2[index2]] * parseInt(precio_pasaje.value));
-    return [matrizLimites1[index].ls * matrizLimites2[index2]].ls * parseInt(precio_pasaje.value);
-}
+
 function calcularLimitesCrucero(array, n) {
     let arregloT = [];
     let lm = 0;
